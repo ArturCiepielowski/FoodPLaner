@@ -42,8 +42,8 @@ public class Food {
         return DAYS_LIST.get(dayOfWeek);
     }
 
-    public Food() {
-        for (int dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
+    public Food(int amountOfDays) {
+        for (int dayOfWeek = 0; dayOfWeek < amountOfDays; dayOfWeek++) {
             System.out.println(getTodayName(dayOfWeek)+": "+getRandomFood());
         }
     }
