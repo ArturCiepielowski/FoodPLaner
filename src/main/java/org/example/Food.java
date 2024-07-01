@@ -1,5 +1,6 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,15 +37,16 @@ public class Food {
         return FOOD_MAP.get(randomFood.nextInt(10) + 1);
     }
 
-    private String getTodayName(int additionalDay) {
-        LocalDateTime today = LocalDateTime.now();
-        String dayOfWeek = today.plusDays(additionalDay).getDayOfWeek().toString();
+    private String getTodayName(LocalDate nextDays) {
+        String dayOfWeek =nextDays.getDayOfWeek().toString();
         return DAYS_LIST.get(dayOfWeek);
     }
 
     public Food(int amountOfDays) {
+        LocalDate today = LocalDate.now();
         for (int dayOfWeek = 0; dayOfWeek < amountOfDays; dayOfWeek++) {
-            System.out.println(getTodayName(dayOfWeek)+": "+getRandomFood());
+            LocalDate nextDays = today.plusDays(dayOfWeek);
+            System.out.println(nextDays+" "+getTodayName(nextDays)+": "+getRandomFood());
         }
     }
 
