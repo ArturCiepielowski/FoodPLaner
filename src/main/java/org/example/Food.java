@@ -1,10 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Food {
     private static final HashMap<String, String[]> FOOD_MAP = new HashMap<>();
@@ -31,6 +28,10 @@ public class Food {
         DAYS_LIST.put("SUNDAY", "Niedziela");
     }
 
+    private String foodName;
+    private String foodDescription;
+    private List<Ingredients> ingredientsList;
+
     public Food(int amountOfDays) {
         LocalDate today = LocalDate.now();
         for (int dayOfWeek = 0; dayOfWeek < amountOfDays; dayOfWeek++) {
@@ -38,6 +39,7 @@ public class Food {
             String chosenFood = getRandomFood();
             System.out.println(nextDays + " " + getTodayName(nextDays) + ": " + chosenFood);
             //todo stworzyc dodatkowy czat pytajacy sie czy wypisac liste zakupow
+//            System.out.println(Arrays.toString(FOOD_MAP.get(chosenFood)));
         }
     }
 
