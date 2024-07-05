@@ -21,6 +21,7 @@ public class Food {
         FOOD_MAP.put("Pizza",new String[]{"placeholder3","placeholder3"});
         FOOD_MAP.put("Pulpety",new String[]{"placeholder4","placeholder4"});
         FOOD_MAP.put("Kurczak w sosie pieczeniowym",new String[]{"placeholder5","placeholder5"});
+        FOOD_MAP.put("Lasagne Bolognese",new String[]{"Makaron Lasagne","Oliwa","Cebula","Mięso mielone wieprzowe","Passata pomidorowa","Koncentrat pomidorowy"});
 
         DAYS_LIST.put("MONDAY", "Poniedziałek");
         DAYS_LIST.put("TUESDAY", "Wtorek");
