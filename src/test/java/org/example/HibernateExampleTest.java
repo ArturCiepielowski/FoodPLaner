@@ -9,34 +9,50 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class HibernateExampleTest {
     private SessionFactory sessionFactory;
 
     @BeforeEach
-    protected void setUp() throws Exception{
+    protected void setUp() throws Exception {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure()
                 .build();
-        try{
-            sessionFactory=new MetadataSources(registry)
+        try {
+            sessionFactory = new MetadataSources(registry)
                     .buildMetadata()
                     .buildSessionFactory();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             StandardServiceRegistryBuilder.destroy(registry);
         }
     }
+
     @Test
-    void save_my_first_object_to_the_db(){
-        Dish dish = new Dish("'Classic pizza with tomato, mozzarella, and basil.","Margherita Pizza");
+    void save_my_first_object_to_the_db() {
+        Dish dish = new Dish("'Classic pizza with tomato, mozzarella, and basil.", "Margherita Pizza");
 
-      try(Session session =sessionFactory.openSession()){
-    session.beginTransaction();
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
 
 
-    session.persist(dish);
+            session.persist(dish);
 
-    session.getTransaction().commit();
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    void hql_fetch_dishes() {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+
+            List<Dish> dishList = session.createQuery("SELECT d from Dish d", Dish.class)
+                    .list();
+            dishList.forEach(System.out::println);
+
+            session.getTransaction().commit();
         }
     }
 }

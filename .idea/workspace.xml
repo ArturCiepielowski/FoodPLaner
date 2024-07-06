@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c06e6782-1755-45e3-9e1d-99740e8c7149" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Dish.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BLANKhibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/HibernateExampleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/HibernateExampleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/HibernateExampleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +47,23 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.HibernateExampleTest.hql_fetch_dishes">
+    <configuration name="HibernateExampleTest.hql_fetch_dishes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FoodPlanner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.HibernateExampleTest" />
+      <option name="METHOD_NAME" value="hql_fetch_dishes" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HibernateExampleTest.save_my_first_object_to_the_db" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FoodPlanner" />
       <extension name="coverage">
@@ -72,6 +82,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HibernateExampleTest.hql_fetch_dishes" />
         <item itemvalue="JUnit.HibernateExampleTest.save_my_first_object_to_the_db" />
       </list>
     </recent_temporary>
