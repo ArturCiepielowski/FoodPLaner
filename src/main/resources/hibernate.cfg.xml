@@ -26,6 +26,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mention annotated class -->
-        <mapping class="com.example.Dish"/>
+        <mapping class="org.example.Dish"/>
     </session-factory>
 </hibernate-configuration>
