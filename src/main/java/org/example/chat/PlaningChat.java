@@ -1,10 +1,12 @@
-package org.example;
+package org.example.chat;
+
+import org.example.Food;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Chat {
+public class PlaningChat extends UtilChat{
     private static final List<String> QUESTION_LIST =new ArrayList<>();
 
     static {
@@ -12,7 +14,7 @@ public class Chat {
         QUESTION_LIST.add("Na ile dni chcesz zaplanować obiad? \n");
         QUESTION_LIST.add("Niepoprawna odpowiedź. Przerywam działanie programu.");
     }
-    public Chat() {
+    public PlaningChat() {
         Scanner sc = new Scanner(System.in);
         int firstChoice = numberQuestion(sc, QUESTION_LIST.get(0));
         if (firstChoice != 1 && firstChoice != 2)
@@ -26,12 +28,4 @@ public class Chat {
         }
     }
 
-    private String wordQuestion(Scanner sc,String question){
-        System.out.println(question);
-        return sc.next();
-    }
-    private int numberQuestion(Scanner sc,String question){
-        System.out.println(question);
-        return sc.nextInt();
-    }
 }

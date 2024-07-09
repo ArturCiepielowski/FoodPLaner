@@ -1,10 +1,10 @@
-package org.example;
+package org.example.chat;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CRUDChat {
+public class CRUDChat extends UtilChat{
     private static final List<String> QUESTION_LIST =new ArrayList<>();
 
     static {
@@ -18,14 +18,5 @@ public class CRUDChat {
         int firstChoice = numberQuestion(sc, QUESTION_LIST.get(0));
         if (firstChoice != 1 && firstChoice != 2)
             System.out.println(QUESTION_LIST.get(2));
-    }
-
-    private String wordQuestion(Scanner sc,String question){
-        System.out.println(question);
-        return sc.next();
-    }
-    private int numberQuestion(Scanner sc,String question){
-        System.out.println(question);
-        return sc.nextInt();
     }
 }

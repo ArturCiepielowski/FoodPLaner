@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c06e6782-1755-45e3-9e1d-99740e8c7149" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/CRUDChat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Dish.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DishDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/MainChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/UtilChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Dish.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CRUDChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/CRUDChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/PlaningChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DishDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DishDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/HibernateExampleTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -60,7 +60,7 @@
       <module name="FoodPlanner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.chat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -72,7 +72,7 @@
       <module name="FoodPlanner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.chat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,7 +88,7 @@
       <module name="FoodPlanner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.chat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

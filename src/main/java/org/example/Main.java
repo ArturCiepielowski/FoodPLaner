@@ -1,12 +1,14 @@
 package org.example;
 
+import org.example.chat.MainChat;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class Main {
     public static void main(String[] args) {
 //       setUpMain();
-        setUpMainRead();
+//        setUpMainRead();
+        MainChat mainChat = new MainChat();
     }
     private static void setUpMain(){
         // Configure Hibernate and build the SessionFactory
