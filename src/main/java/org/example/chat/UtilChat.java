@@ -13,7 +13,7 @@ public class UtilChat {
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
-    public static final String ANSI_CLEAR_SCREEN = "\033[H\033[2J";
+    public static final String ANSI_CLEAR_SCREEN = "\u001B[2J";
     public static final String ANSI_HOME = "\u001B[H";
     private static final List<String> TEXT_LIST =new ArrayList<>();
 
@@ -34,9 +34,6 @@ public class UtilChat {
         printCyan(TEXT_LIST.get(0));
         printGreen(TEXT_LIST.get(1));
         printCyan(TEXT_LIST.get(0));
-    }
-    protected void printElementOfList(){
-
     }
     protected void printYellow(String text){
         System.out.println(ANSI_YELLOW + text + ANSI_RESET);

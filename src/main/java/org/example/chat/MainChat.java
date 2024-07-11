@@ -36,7 +36,7 @@ public class MainChat extends UtilChat {
                     CRUDChat crudChat = new CRUDChat();
                     break;
                 case "3":
-                    System.out.println(ANSI_GREEN + "Goodbye! Have a great day!" + ANSI_RESET);
+                    PlaningChat planingChat = new PlaningChat();
                     break;
                 case "4":
                     running = false;
@@ -45,7 +45,7 @@ public class MainChat extends UtilChat {
                 default:
                     printRed(OPTIONS_LIST.get(5));
             }
-
+            clearConsole();
             System.out.println();  // Print a blank line for spacing
         }
         scanner.close();

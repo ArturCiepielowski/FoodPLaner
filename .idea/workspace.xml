@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c06e6782-1755-45e3-9e1d-99740e8c7149" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/TestClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DishDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DishDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/CRUDChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/CRUDChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/MainChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/MainChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/PlaningChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/PlaningChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/UtilChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/UtilChat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
