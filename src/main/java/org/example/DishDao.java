@@ -10,12 +10,13 @@ import java.util.List;
 public class DishDao {
     private SessionFactory sessionFactory;
 
+    public DishDao(){}
     public DishDao(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    public void setUp(){
-         sessionFactory = new Configuration()
+    public SessionFactory setUp(){
+        return sessionFactory = new Configuration()
                 .configure()
                 .buildSessionFactory();
     }
@@ -47,11 +48,11 @@ public class DishDao {
         session.close();
     }
 
-    public List<Dish> list() {
+    public List<Dish> listAllDishes() {
         Session session = sessionFactory.openSession();
-        List<Dish> users = session.createQuery("from Dish", Dish.class).list();
+        List<Dish> dishList = session.createQuery("from Dish", Dish.class).list();
         session.close();
-        return users;
+        return dishList;
     }
 
 

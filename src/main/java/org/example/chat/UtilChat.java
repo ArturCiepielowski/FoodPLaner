@@ -23,17 +23,20 @@ public class UtilChat {
     }
 
     protected String wordQuestion(Scanner sc, String question) {
-        System.out.println(question);
-        return sc.next();
+        printGreen(question);
+        return sc.nextLine();
     }
     protected int numberQuestion(Scanner sc, String question) {
-        System.out.println(question);
+        printGreen(question);
         return sc.nextInt();
     }
     protected void printLogo(){
         printCyan(TEXT_LIST.get(0));
         printGreen(TEXT_LIST.get(1));
         printCyan(TEXT_LIST.get(0));
+    }
+    protected void printElementOfList(){
+
     }
     protected void printYellow(String text){
         System.out.println(ANSI_YELLOW + text + ANSI_RESET);

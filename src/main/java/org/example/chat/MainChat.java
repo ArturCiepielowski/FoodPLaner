@@ -33,7 +33,7 @@ public class MainChat extends UtilChat {
                     printGreen(OPTIONS_LIST.get(7));
                     break;
                 case "2":
-                    System.out.println(ANSI_GREEN + "The weather is sunny with a chance of rain." + ANSI_RESET);
+                    CRUDChat crudChat = new CRUDChat();
                     break;
                 case "3":
                     System.out.println(ANSI_GREEN + "Goodbye! Have a great day!" + ANSI_RESET);
