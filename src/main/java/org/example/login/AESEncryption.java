@@ -1,36 +1,11 @@
-package org.example;
+package org.example.login;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.util.Base64;
-import java.util.Scanner;
 
-public class TestClass {
-
-    public static void main(String[] args) {
-        System.out.println("TEST");
-        System.out.println("\033c");
-//        try {
-//            // Generate AES key
-//            SecretKey secretKey = generateKey(128);
-//
-//            // Original message
-//            String message = "Hello, World!";
-//
-//            // Encrypt the message
-//            String encryptedMessage = encrypt(message, secretKey);
-//            System.out.println("Encrypted Message: " + encryptedMessage);
-//            System.out.println(generateKey(128).toString());
-//
-//            // Decrypt the message
-//            String decryptedMessage = decrypt(encryptedMessage, secretKey);
-//            System.out.println("Decrypted Message: " + decryptedMessage);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-    }
+public class AESEncryption {
 
     public static SecretKey generateKey(int n) throws Exception {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
@@ -51,5 +26,4 @@ public class TestClass {
         byte[] decryptedBytes = cipher.doFinal(decodedBytes);
         return new String(decryptedBytes);
     }
-
 }

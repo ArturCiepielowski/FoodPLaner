@@ -37,5 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### hibernate config filled ###
-src/resources/hibernate.cfg.xml
+### hibernate config fille ###
+src/main/resources/hibernate.cfg.xml
