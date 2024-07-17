@@ -20,8 +20,8 @@ public class DishDao {
     }
 
     public static void insertDish(Dish dish) {
-        DishDao.setUp();
-        DishDao.insert(dish);
+        setUp();
+        insert(dish);
         sessionFactory.close();
     }
 
@@ -34,8 +34,8 @@ public class DishDao {
     }
 
     public static boolean selectDish(String name) {
-        DishDao.setUp();
-        Dish dish = DishDao.getDishByName(name);
+        setUp();
+        Dish dish = getDishByName(name);
         if (transactionSuccess) {
             UtilChat.printPurple("Dish name: " + dish.getName());
             UtilChat.printPurple("Dish description: " + dish.getDescription());
@@ -57,12 +57,12 @@ public class DishDao {
     }
 
     public static boolean updateDish(String dishName, String newName, String newDescription) {
-        DishDao.setUp();
-        Dish existingDish = DishDao.getDishByName(dishName);
+        setUp();
+        Dish existingDish = getDishByName(dishName);
         if (transactionSuccess) {
             if (newName != null && !newName.isEmpty()) existingDish.setName(newName);
             if (newDescription != null && !newDescription.isEmpty()) existingDish.setDescription(newDescription);
-            DishDao.update(existingDish);
+            update(existingDish);
         }
         sessionFactory.close();
         return transactionSuccess;
@@ -77,9 +77,9 @@ public class DishDao {
     }
 
     public static boolean deleteDish(String dishName) {
-        DishDao.setUp();
-        Dish existingDish = DishDao.getDishByName(dishName);
-        if (transactionSuccess) DishDao.delete(existingDish);
+        setUp();
+        Dish existingDish = getDishByName(dishName);
+        if (transactionSuccess) delete(existingDish);
         sessionFactory.close();
         return transactionSuccess;
     }
@@ -93,8 +93,8 @@ public class DishDao {
     }
 
     public static void printAllDishes() {
-        DishDao.setUp();
-        List<Dish> dishList = DishDao.listAllDishes();
+        setUp();
+        List<Dish> dishList = listAllDishes();
         for (Dish nextDish : dishList) {
             System.out.println(nextDish.toString());
         }
@@ -109,8 +109,8 @@ public class DishDao {
     }
 
     public static Dish getRandomFood() {
-        DishDao.setUp();
-        List<Dish> dishList = DishDao.listAllDishes();
+        setUp();
+        List<Dish> dishList = listAllDishes();
         Random randomFood = new Random();
         int randomIndex = randomFood.nextInt(dishList.size());
         sessionFactory.close();
