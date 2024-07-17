@@ -20,30 +20,22 @@ public class MainChat extends UtilChat {
         OPTIONS_LIST.add("Feature not yet ready, please try something else!");
     }
 
-    public MainChat() {
+    public static void displayMainChat() {
         printLogo();
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            clearConsole();
             printMenu();
             String mainChoice = scanner.next();
             switch (mainChoice) {
-                case "1":
-                    printGreen(OPTIONS_LIST.get(7));
-                    break;
-                case "2":
-                    CRUDChat crudChat = new CRUDChat();
-                    break;
-                case "3":
-                    PlaningChat planingChat = new PlaningChat();
-                    break;
-                case "4":
+                case "1" -> printGreen(OPTIONS_LIST.get(7));
+                case "2" -> CRUDChat.displayCRUDChat();
+                case "3" -> PlaningChat.displayPlaningChat();
+                case "4" -> {
                     running = false;
                     printRed(OPTIONS_LIST.get(6));
-                    break;
-                default:
-                    printRed(OPTIONS_LIST.get(5));
+                }
+                default -> printRed(OPTIONS_LIST.get(5));
             }
             clearConsole();
             System.out.println();  // Print a blank line for spacing
@@ -51,7 +43,7 @@ public class MainChat extends UtilChat {
         scanner.close();
     }
 
-    private void printMenu() {
+    private static void printMenu() {
         printYellow(OPTIONS_LIST.get(0));
         for (int index = 1; index < 5; index++) {
             printBlue(OPTIONS_LIST.get(index));
