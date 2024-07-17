@@ -12,8 +12,10 @@ import java.util.Random;
 public class DishDao {
     private static final String QUERY_DISH_BY_NAME = "FROM Dish D WHERE D.name = '";
     private static SessionFactory sessionFactory;
+    public static boolean transactionSuccess;
 
     public static void setUp() {
+        transactionSuccess = true;
         sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
@@ -31,43 +33,55 @@ public class DishDao {
         session.close();
     }
 
-    public static void selectDish(String name) {
+    public static boolean selectDish(String name) {
         DishDao.setUp();
         Dish dish = DishDao.getDishByName(name);
-        UtilChat.printPurple("Dish name: " + dish.getName());
-        UtilChat.printPurple("Dish description: " + dish.getDescription());
+        if (transactionSuccess) {
+            UtilChat.printPurple("Dish name: " + dish.getName());
+            UtilChat.printPurple("Dish description: " + dish.getDescription());
+        }
         sessionFactory.close();
+        return transactionSuccess;
     }
 
     public static Dish getDishByName(String name) {
         Session session = sessionFactory.openSession();
-        Dish dish = (Dish) session.createSelectionQuery(QUERY_DISH_BY_NAME + name + "'").getSingleResult();
+        Dish dish = null;
+        try {
+            dish = session.createSelectionQuery(QUERY_DISH_BY_NAME + name + "'", Dish.class).getSingleResult();
+        } catch (Exception NoResultException) {
+            transactionSuccess = false;
+        }
         session.close();
         return dish;
     }
 
-    public static void updateDish(String dishName, String newName, String newDescription) {
+    public static boolean updateDish(String dishName, String newName, String newDescription) {
         DishDao.setUp();
         Dish existingDish = DishDao.getDishByName(dishName);
-        if (newName != null && !newName.isEmpty()) existingDish.setName(newName);
-        if (newDescription != null && !newDescription.isEmpty()) existingDish.setDescription(newDescription);
-        DishDao.update(existingDish);
+        if (transactionSuccess) {
+            if (newName != null && !newName.isEmpty()) existingDish.setName(newName);
+            if (newDescription != null && !newDescription.isEmpty()) existingDish.setDescription(newDescription);
+            DishDao.update(existingDish);
+        }
         sessionFactory.close();
+        return transactionSuccess;
     }
 
     public static void update(Dish dish) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(dish);
+        session.merge(dish);
         transaction.commit();
         session.close();
     }
 
-    public static void deleteDish(String dishName) {
+    public static boolean deleteDish(String dishName) {
         DishDao.setUp();
         Dish existingDish = DishDao.getDishByName(dishName);
-        DishDao.delete(existingDish);
+        if (transactionSuccess) DishDao.delete(existingDish);
         sessionFactory.close();
+        return transactionSuccess;
     }
 
     public static void delete(Dish dish) {

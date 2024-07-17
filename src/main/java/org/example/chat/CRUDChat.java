@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CRUDChat extends UtilChat {
+    private static final String DISH_NOT_FOUND = "Dish not found! Please provide correct name.";
     private static final List<String> CRUD_LIST = new ArrayList<>();
     private static final List<String> EXQ_LIST = new ArrayList<>();
 
@@ -43,16 +44,16 @@ public class CRUDChat extends UtilChat {
                     System.out.println("Dish added");
                 }
                 case "2" -> {
-                    showDish();
-                    System.out.println("Showed Dish");
+                    if (!showDish()) System.out.println(DISH_NOT_FOUND);
+                    else System.out.println("Dish showed");
                 }
                 case "3" -> {
-                    editDish();
-                    System.out.println("Edited Dish");
+                    if (!editDish()) System.out.println(DISH_NOT_FOUND);
+                    else System.out.println("Dish edited");
                 }
                 case "4" -> {
-                    removeDish();
-                    System.out.println("Deleted Dish");
+                    if (!removeDish()) System.out.println(DISH_NOT_FOUND);
+                    else System.out.println("Dish removed");
                 }
                 case "5" -> {
                     DishDao.printAllDishes();
@@ -82,20 +83,20 @@ public class CRUDChat extends UtilChat {
         DishDao.insertDish(dish);
     }
 
-    private static void showDish() {
+    private static boolean showDish() {
         String dishId = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
-        DishDao.selectDish(dishId);
+         return DishDao.selectDish(dishId);
     }
 
-    private static void editDish() {
+    private static boolean editDish() {
         String dishName = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
         String newName = wordQuestion(new Scanner(System.in), EXQ_LIST.get(3));
         String newDescription = wordQuestion(new Scanner(System.in), EXQ_LIST.get(4));
-        DishDao.updateDish(dishName, newName, newDescription);
+        return DishDao.updateDish(dishName, newName, newDescription);
     }
 
-    private static void removeDish() {
+    private static boolean removeDish() {
         String dishName = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
-        DishDao.deleteDish(dishName);
+        return DishDao.deleteDish(dishName);
     }
 }
