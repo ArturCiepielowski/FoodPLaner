@@ -1,14 +1,14 @@
 package org.example.chat;
 
-import org.example.Dish;
-import org.example.DishDao;
-import org.hibernate.SessionFactory;
+import org.example.Dish.Dish;
+import org.example.Dish.DishDao;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CRUDChat extends UtilChat {
+    private static final String DISH_NOT_FOUND = "Dish not found! Please provide correct name.";
     private static final List<String> CRUD_LIST = new ArrayList<>();
     private static final List<String> EXQ_LIST = new ArrayList<>();
 
@@ -26,129 +26,77 @@ public class CRUDChat extends UtilChat {
 
         EXQ_LIST.add("What is the name of Dish?");
         EXQ_LIST.add("What is the description of Dish?");
-        EXQ_LIST.add("Which Dish do you want? Write ID.");
+        EXQ_LIST.add("Which Dish do you want? Write name.");
         EXQ_LIST.add("What is the new name for the Dish?");
         EXQ_LIST.add("What is the new description for the Dish?");
     }
 
-    public CRUDChat() {
+    public static void displayCRUDChat() {
         printLogo();
         Scanner sc = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            clearConsole();
             printCrudOptions();
             String crudChoice = sc.next();
             switch (crudChoice) {
-                case "1":
-                    addDish();
+                case "1" -> {
+                    getDishNameAndDesc();
                     System.out.println("Dish added");
-                    break;
-                case "2":
-                    showDish();
-                    System.out.println("Showed Dish");
-                    break;
-                case "3":
-                    editDish();
-                    System.out.println("Edited Dish");
-                    break;
-                case "4":
-                    removeDish();
-                    System.out.println("Deleted Dish");
-                    break;
-                case "5":
-                    printAll();
+                }
+                case "2" -> {
+                    if (!showDish()) System.out.println(DISH_NOT_FOUND);
+                    else System.out.println("Dish showed");
+                }
+                case "3" -> {
+                    if (!editDish()) System.out.println(DISH_NOT_FOUND);
+                    else System.out.println("Dish edited");
+                }
+                case "4" -> {
+                    if (!removeDish()) System.out.println(DISH_NOT_FOUND);
+                    else System.out.println("Dish removed");
+                }
+                case "5" -> {
+                    DishDao.printAllDishes();
                     System.out.println("Showed all Dishes");
-                    break;
-                case "6":
-                    running = false;
-                    break;
-                case "7":
+                }
+                case "6" -> running = false;
+                case "7" -> {
                     printRed(CRUD_LIST.get(8));
                     System.exit(0);
-                    break;
-                default:
-                    printRed(CRUD_LIST.get(9));
+                }
+                default -> printRed(CRUD_LIST.get(9));
             }
         }
     }
 
-    private void printCrudOptions() {
+    private static void printCrudOptions() {
         printYellow(CRUD_LIST.get(0));
         for (int index = 1; index < 8; index++) {
             printBlue(CRUD_LIST.get(index));
         }
     }
 
-    private void addDish() {
-        String dishName = wordQuestion(new Scanner(System.in), EXQ_LIST.get(0));
-        String dishDesc = wordQuestion(new Scanner(System.in), EXQ_LIST.get(1));
-        insertDish(dishName, dishDesc);
+    private static void getDishNameAndDesc() {
+        Dish dish = new Dish();
+        dish.setName(wordQuestion(new Scanner(System.in), EXQ_LIST.get(0)));
+        dish.setDescription(wordQuestion(new Scanner(System.in), EXQ_LIST.get(1)));
+        DishDao.insertDish(dish);
     }
 
-    private void insertDish(String dishName, String dishDesc) {
-        Dish newDish = new Dish();
-        newDish.setName(dishName);
-        newDish.setDescription(dishDesc);
-        DishDao dishDao = new DishDao();
-        SessionFactory sessionFactory = dishDao.setUp();
-        dishDao.create(newDish);
-        sessionFactory.close();
-    }
-
-    private void showDish() {
+    private static boolean showDish() {
         String dishId = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
-        selectDish(dishId);
+         return DishDao.selectDish(dishId);
     }
 
-    private void selectDish(String Id) {
-        DishDao dishDao = new DishDao();
-        SessionFactory sessionFactory = dishDao.setUp();
-        Long dishId = Long.parseLong(Id);
-        Dish dish = dishDao.read(dishId);
-        printPurple("Dish name: " + dish.getName());
-        printPurple("Dish description: " + dish.getDescription());
-        sessionFactory.close();
-    }
-
-    private void editDish() {
-        String dishId = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
+    private static boolean editDish() {
+        String dishName = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
         String newName = wordQuestion(new Scanner(System.in), EXQ_LIST.get(3));
         String newDescription = wordQuestion(new Scanner(System.in), EXQ_LIST.get(4));
-        updateDish(dishId, newName, newDescription);
+        return DishDao.updateDish(dishName, newName, newDescription);
     }
 
-    private void updateDish(String dishId, String newName, String newDescription){
-        DishDao dishDao = new DishDao();
-        SessionFactory sessionFactory = dishDao.setUp();
-        Long parsedDishId = Long.parseLong(dishId);
-        Dish existingDish = dishDao.read(parsedDishId);
-        if (newName != null&&!newName.isEmpty()) existingDish.setName(newName);
-        if(newDescription!=null&&!newDescription.isEmpty()) existingDish.setDescription(newDescription);
-        dishDao.update(existingDish);
-        sessionFactory.close();
-    }
-
-    private void removeDish() {
-        String dishId = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
-        deleteDish(dishId);
-    }
-    private void deleteDish(String dishId) {
-        DishDao dishDao = new DishDao();
-        SessionFactory sessionFactory = dishDao.setUp();
-        Long parsedDishId = Long.parseLong(dishId);
-        Dish existingDish = dishDao.read(parsedDishId);
-        dishDao.delete(existingDish);
-        sessionFactory.close();
-    }
-
-    private void printAll() {
-        DishDao dishDao = new DishDao();
-        SessionFactory sessionFactory = dishDao.setUp();
-        List<Dish> dishList = dishDao.listAllDishes();
-        for(Dish nextDish:dishList){
-            System.out.println(nextDish.toString());
-        }
-        sessionFactory.close();
+    private static boolean removeDish() {
+        String dishName = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
+        return DishDao.deleteDish(dishName);
     }
 }

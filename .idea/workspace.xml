@@ -29,17 +29,18 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="hibernate-AC" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2iZKsZEO13jXwBfe1DX8tvfU2SZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -51,15 +52,20 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "settings.editor.selected.configurable": "terminal"
+
   }
 }]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="FoodPlanner" />
+
       <option name="VM_PARAMETERS" value="-Djava.util.logging.config.file=path/to/logging.properties " />
+
+
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.chat.*" />
@@ -140,5 +146,10 @@
       <updated>1719692870697</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Code cleanup, refactoring, moving some methods and cleaning them" />
+    <MESSAGE value="Added try catch and handling wrong input from user." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added try catch and handling wrong input from user." />
   </component>
 </project>
