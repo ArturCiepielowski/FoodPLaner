@@ -1,12 +1,6 @@
 package org.example;
 
-import org.example.Dish.Dish;
-import org.example.Dish.DishDao;
 import org.example.chat.MainChat;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {

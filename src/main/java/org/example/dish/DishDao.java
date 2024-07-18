@@ -1,4 +1,4 @@
-package org.example.Dish;
+package org.example.dish;
 
 import org.example.chat.UtilChat;
 import org.hibernate.Session;

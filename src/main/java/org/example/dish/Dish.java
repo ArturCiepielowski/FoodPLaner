@@ -1,4 +1,4 @@
-package org.example.Dish;
+package org.example.dish;
 
 import jakarta.persistence.*;
 

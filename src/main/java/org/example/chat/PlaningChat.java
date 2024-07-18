@@ -1,7 +1,7 @@
 package org.example.chat;
 
-import org.example.Dish.Dish;
-import org.example.Dish.DishDao;
+import org.example.dish.Dish;
+import org.example.dish.DishDao;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
