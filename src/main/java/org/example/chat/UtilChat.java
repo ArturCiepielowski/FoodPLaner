@@ -15,51 +15,59 @@ public class UtilChat {
     public static final String ANSI_WHITE = "\u001B[37m";
     public static final String ANSI_CLEAR_SCREEN = "\u001B[2J";
     public static final String ANSI_HOME = "\u001B[H";
-    private static final List<String> TEXT_LIST =new ArrayList<>();
+    private static final List<String> TEXT_LIST = new ArrayList<>();
 
     static {
         TEXT_LIST.add("=====================================");
         TEXT_LIST.add("     WELCOME TO THE FOODPLANNER!");
     }
 
-    protected String wordQuestion(Scanner sc, String question) {
+    public static String wordQuestion(Scanner sc, String question) {
         printGreen(question);
         return sc.nextLine();
     }
-    protected int numberQuestion(Scanner sc, String question) {
+
+    public static int numberQuestion(Scanner sc, String question) {
         printGreen(question);
         return sc.nextInt();
     }
-    protected void printLogo(){
+
+    public static void printLogo() {
         printCyan(TEXT_LIST.get(0));
         printGreen(TEXT_LIST.get(1));
         printCyan(TEXT_LIST.get(0));
     }
-    protected void printYellow(String text){
+
+    public static void printYellow(String text) {
         System.out.println(ANSI_YELLOW + text + ANSI_RESET);
     }
-    protected void printCyan(String text){
+
+    public static void printCyan(String text) {
         System.out.println(ANSI_CYAN + text + ANSI_RESET);
     }
-    protected void printGreen(String text){
+
+    public static void printGreen(String text) {
         System.out.println(ANSI_GREEN + text + ANSI_RESET);
     }
-    protected void printBlue(String text){
-        System.out.println(ANSI_BLUE + text+ ANSI_RESET);
+
+    public static void printBlue(String text) {
+        System.out.println(ANSI_BLUE + text + ANSI_RESET);
     }
-    protected void printRed(String text){
-        System.out.println(ANSI_RED + text+ ANSI_RESET);
+
+    public static void printRed(String text) {
+        System.out.println(ANSI_RED + text + ANSI_RESET);
     }
-    protected void printPurple(String text){
-        System.out.println(ANSI_PURPLE + text+ ANSI_RESET);
+
+    public static void printPurple(String text) {
+        System.out.println(ANSI_PURPLE + text + ANSI_RESET);
     }
-    protected void printWhite(String text){
-        System.out.println(ANSI_WHITE + text+ ANSI_RESET);
+
+    public static void printWhite(String text) {
+        System.out.println(ANSI_WHITE + text + ANSI_RESET);
     }
-    protected void clearConsole() {
+
+    public static void clearConsole() {
         System.out.print(ANSI_CLEAR_SCREEN + ANSI_HOME);
         System.out.flush();
     }
-
-
 }
