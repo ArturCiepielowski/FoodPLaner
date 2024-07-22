@@ -3,6 +3,8 @@ package org.example.login;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.io.FileInputStream;
 import java.util.Base64;
 
 public class AESEncryption {
@@ -12,6 +14,15 @@ public class AESEncryption {
         keyGen.init(n);
         SecretKey key = keyGen.generateKey();
         return key;
+    }
+    public static SecretKey loadKey(String fileName) throws Exception {
+        byte[] keyBytes;
+        try (FileInputStream fis = new FileInputStream(fileName)) {
+            keyBytes = fis.readAllBytes();
+        }
+        String encodedKey = new String(keyBytes);
+        byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
+        return new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
     }
     public static String encrypt(String message, SecretKey secretKey) throws Exception {
         Cipher cipher = Cipher.getInstance("AES");
