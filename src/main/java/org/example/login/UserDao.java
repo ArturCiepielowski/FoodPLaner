@@ -8,9 +8,10 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class UserDao {
-    private static final String QUERY_USER_BY_NAME = "FROM User U WHERE U.name = '";
+    private static final String QUERY_USER_BY_NAME = "FROM User U WHERE U.username = '";
     private static SessionFactory sessionFactory;
     public static boolean transactionSuccess;
+
     public static void setUp() {
         transactionSuccess = true;
         sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -30,15 +31,15 @@ public class UserDao {
         session.close();
     }
 
-    public static boolean selectUser(String name) {
+    public static User verifyUser(String name, String password) {
         setUp();
         User user = getUserByName(name);
+        System.out.println("Sukces!" +user);
         if (transactionSuccess) {
-            UtilChat.printPurple("User name: " + user.getUsername());
-            UtilChat.printPurple("User password: " + user.getPassword());
+            if (user.getUsername().equals(name) && user.getPassword().equals(password)) return user;
         }
         sessionFactory.close();
-        return transactionSuccess;
+        return null;
     }
 
     public static User getUserByName(String name) {
@@ -47,6 +48,7 @@ public class UserDao {
         try {
             user = session.createSelectionQuery(QUERY_USER_BY_NAME + name + "'", User.class).getSingleResult();
         } catch (Exception NoResultException) {
+            System.out.println("brak");
             transactionSuccess = false;
         }
         session.close();

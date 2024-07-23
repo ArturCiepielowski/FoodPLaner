@@ -27,7 +27,7 @@ public class PlaningChat extends UtilChat {
         Scanner sc = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            printQuestions();
+            printMenu(5,QUESTION_LIST);
             String crudChoice = sc.next();
             switch (crudChoice) {
                 case "1" -> generateFood(1);
@@ -42,13 +42,6 @@ public class PlaningChat extends UtilChat {
                 }
                 default -> printRed(QUESTION_LIST.get(6));
             }
-        }
-    }
-
-    private static void printQuestions() {
-        printYellow(QUESTION_LIST.get(0));
-        for (int index = 1; index < 5; index++) {
-            printBlue(QUESTION_LIST.get(index));
         }
     }
 

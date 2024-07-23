@@ -1,5 +1,7 @@
 package org.example.chat;
 
+import org.example.login.User;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,8 +22,9 @@ public class MainChat extends UtilChat {
         OPTIONS_LIST.add("Feature not yet ready, please try something else!");
     }
 
-    public static void displayMainChat() {
+    public static void displayMainChat(/*User user*/) {
         printLogo();
+//        printUserLogo(user.getUsername());
         Scanner sc = new Scanner(System.in);
         boolean running = true;
         while (running) {

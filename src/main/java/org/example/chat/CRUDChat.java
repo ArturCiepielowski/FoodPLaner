@@ -78,8 +78,8 @@ public class CRUDChat extends UtilChat {
     }
 
     private static boolean showDish() {
-        String dishId = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
-         return DishDao.selectDish(dishId);
+        String dishName = wordQuestion(new Scanner(System.in), EXQ_LIST.get(2));
+         return DishDao.selectDish(dishName);
     }
 
     private static boolean editDish() {

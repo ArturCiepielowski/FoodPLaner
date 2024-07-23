@@ -37,6 +37,12 @@ public class UtilChat {
         printGreen(TEXT_LIST.get(1));
         printCyan(TEXT_LIST.get(0));
     }
+    public static void printUserLogo(String user) {
+        printCyan(TEXT_LIST.get(0));
+        printGreen(TEXT_LIST.get(1));
+        printWhite("admin");
+        printCyan(TEXT_LIST.get(0));
+    }
 
     public static void printMenu(int numOfPos,List<String> menuList) {
         printYellow(menuList.get(0));
