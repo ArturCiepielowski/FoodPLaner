@@ -36,7 +36,7 @@ public class CRUDChat extends UtilChat {
         Scanner sc = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            printCrudOptions();
+            printMenu(8,CRUD_LIST);
             String crudChoice = sc.next();
             switch (crudChoice) {
                 case "1" -> {
@@ -67,13 +67,7 @@ public class CRUDChat extends UtilChat {
                 default -> printRed(CRUD_LIST.get(9));
             }
         }
-    }
-
-    private static void printCrudOptions() {
-        printYellow(CRUD_LIST.get(0));
-        for (int index = 1; index < 8; index++) {
-            printBlue(CRUD_LIST.get(index));
-        }
+        sc.close();
     }
 
     private static void getDishNameAndDesc() {

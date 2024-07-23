@@ -10,7 +10,7 @@ public class MainChat extends UtilChat {
 
     static {
         OPTIONS_LIST.add("Please choose an option:");
-        OPTIONS_LIST.add("1.Log in or Register[NOT READY]");
+        OPTIONS_LIST.add("1.Enter user dashboard [NOT READY]");
         OPTIONS_LIST.add("2.Make CRUD operations");
         OPTIONS_LIST.add("3.Generate random food");
         OPTIONS_LIST.add("4.Exit program");
@@ -22,11 +22,11 @@ public class MainChat extends UtilChat {
 
     public static void displayMainChat() {
         printLogo();
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         boolean running = true;
         while (running) {
-            printMenu();
-            String mainChoice = scanner.next();
+            printMenu(5,OPTIONS_LIST);
+            String mainChoice = sc.next();
             switch (mainChoice) {
                 case "1" -> printGreen(OPTIONS_LIST.get(7));
                 case "2" -> CRUDChat.displayCRUDChat();
@@ -40,13 +40,8 @@ public class MainChat extends UtilChat {
             clearConsole();
             System.out.println();  // Print a blank line for spacing
         }
-        scanner.close();
+        sc.close();
     }
 
-    private static void printMenu() {
-        printYellow(OPTIONS_LIST.get(0));
-        for (int index = 1; index < 5; index++) {
-            printBlue(OPTIONS_LIST.get(index));
-        }
-    }
+
 }

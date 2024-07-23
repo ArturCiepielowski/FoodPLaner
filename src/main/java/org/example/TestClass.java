@@ -19,10 +19,11 @@ public class TestClass {
 //            saveKey(secretKey, absolutePath);
             // Original message
             SecretKey secretKey = loadKey(relativePath);
-            String message = "Hello, World!";
+            String message = "Test";
+            String encryptedMessage = "MqwUrL+qV59SBsq/gTqHkw==";
             // Encrypt the message
-            String encryptedMessage = encrypt(message, secretKey);
-            System.out.println("Encrypted Message: " + encryptedMessage);
+//            String encryptedMessage = encrypt(message, secretKey);
+//            System.out.println("Encrypted Message: " + encryptedMessage);
 
             // Decrypt the message
 //            String decryptedMessage = decrypt(message, secretKey);

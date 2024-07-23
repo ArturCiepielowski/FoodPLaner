@@ -38,6 +38,13 @@ public class UtilChat {
         printCyan(TEXT_LIST.get(0));
     }
 
+    public static void printMenu(int numOfPos,List<String> menuList) {
+        printYellow(menuList.get(0));
+        for (int index = 1; index < numOfPos; index++) {
+            printBlue(menuList.get(index));
+        }
+    }
+
     public static void printYellow(String text) {
         System.out.println(ANSI_YELLOW + text + ANSI_RESET);
     }
