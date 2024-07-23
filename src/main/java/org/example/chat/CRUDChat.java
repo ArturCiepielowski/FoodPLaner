@@ -2,6 +2,7 @@ package org.example.chat;
 
 import org.example.dish.Dish;
 import org.example.dish.DishDao;
+import org.example.login.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,8 @@ public class CRUDChat extends UtilChat {
         EXQ_LIST.add("What is the new description for the Dish?");
     }
 
-    public static void displayCRUDChat() {
-        printLogo();
+    public static void displayCRUDChat(User user) {
+        printUserLogo(user.getUsername());
         Scanner sc = new Scanner(System.in);
         boolean running = true;
         while (running) {
@@ -67,7 +68,6 @@ public class CRUDChat extends UtilChat {
                 default -> printRed(CRUD_LIST.get(9));
             }
         }
-        sc.close();
     }
 
     private static void getDishNameAndDesc() {

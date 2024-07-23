@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c06e6782-1755-45e3-9e1d-99740e8c7149" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/CRUDChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/CRUDChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/MainChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/MainChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/PlaningChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/PlaningChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/UserChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/UserChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/UtilChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/UtilChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/login/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/login/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="hibernate-AC" />
+        <entry key="$PROJECT_DIR$" value="hibernate-JK" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,9 +126,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.TestClass" />
-        <item itemvalue="JUnit.HibernateExampleTest.hql_fetch_dishes" />
         <item itemvalue="JUnit.HibernateExampleTest.save_my_first_object_to_the_db" />
+        <item itemvalue="JUnit.HibernateExampleTest.hql_fetch_dishes" />
+        <item itemvalue="Application.TestClass" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>

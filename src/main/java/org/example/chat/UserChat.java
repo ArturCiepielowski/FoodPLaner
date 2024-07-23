@@ -49,7 +49,7 @@ public class UserChat extends UtilChat {
         String username = wordQuestion(new Scanner(System.in), LOGIN_LIST.get(0));
         String password = wordQuestion(new Scanner(System.in), LOGIN_LIST.get(1));
         User currentUser = UserDao.verifyUser(username, password);
-        if(currentUser!=null)MainChat.displayMainChat();
+        if(currentUser!=null)MainChat.displayMainChat(currentUser);
     }
 
     private static void registerChat() {

@@ -2,6 +2,7 @@ package org.example.chat;
 
 import org.example.dish.Dish;
 import org.example.dish.DishDao;
+import org.example.login.User;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,8 +23,8 @@ public class PlaningChat extends UtilChat {
         QUESTION_LIST.add("Exiting Foodplanner. Goodbye!");
     }
 
-    public static void displayPlaningChat() {
-        printLogo();
+    public static void displayPlaningChat(User user) {
+        printUserLogo(user.getUsername());
         Scanner sc = new Scanner(System.in);
         boolean running = true;
         while (running) {

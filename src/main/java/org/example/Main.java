@@ -5,7 +5,6 @@ import org.example.chat.UserChat;
 
 public class Main {
     public static void main(String[] args) {
-//        MainChat.displayMainChat();
         UserChat.displayUserChat();
     }
 }

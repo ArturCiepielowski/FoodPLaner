@@ -34,7 +34,6 @@ public class UserDao {
     public static User verifyUser(String name, String password) {
         setUp();
         User user = getUserByName(name);
-        System.out.println("Sukces!" +user);
         if (transactionSuccess) {
             if (user.getUsername().equals(name) && user.getPassword().equals(password)) return user;
         }
@@ -48,7 +47,6 @@ public class UserDao {
         try {
             user = session.createSelectionQuery(QUERY_USER_BY_NAME + name + "'", User.class).getSingleResult();
         } catch (Exception NoResultException) {
-            System.out.println("brak");
             transactionSuccess = false;
         }
         session.close();

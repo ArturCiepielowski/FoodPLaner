@@ -40,7 +40,7 @@ public class UtilChat {
     public static void printUserLogo(String user) {
         printCyan(TEXT_LIST.get(0));
         printGreen(TEXT_LIST.get(1));
-        printWhite("admin");
+        printWhite(user);
         printCyan(TEXT_LIST.get(0));
     }
 
