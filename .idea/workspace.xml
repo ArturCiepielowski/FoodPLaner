@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c06e6782-1755-45e3-9e1d-99740e8c7149" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_07_2024_21_27_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_07_2024_21_27__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/CRUDChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/CRUDChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/MainChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/MainChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/PlaningChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/PlaningChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/UserChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/UserChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/chat/UtilChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/chat/UtilChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/login/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/login/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/login/AESEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/login/AESEncryption.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

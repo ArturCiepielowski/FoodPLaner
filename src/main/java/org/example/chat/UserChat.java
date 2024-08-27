@@ -1,5 +1,8 @@
 package org.example.chat;
 
+import org.example.dish.Dish;
+import org.example.dish.DishDao;
+import org.example.login.AESEncryption;
 import org.example.login.User;
 import org.example.login.UserDao;
 
@@ -53,11 +56,26 @@ public class UserChat extends UtilChat {
     }
 
     private static void registerChat() {
+        User user = new User();
         String username = wordQuestion(new Scanner(System.in), LOGIN_LIST.get(0));
         String password = wordQuestion(new Scanner(System.in), LOGIN_LIST.get(1));
         String email = wordQuestion(new Scanner(System.in), LOGIN_LIST.get(2));
+        try {
+            user.setUsername(AESEncryption.encrypt(username));
+            user.setPassword(AESEncryption.encrypt(password));
+            user.setEmail(AESEncryption.encrypt(email));
+        }catch (Exception e){
+            printRed(USER_LIST.get(5));
+        }
+        UserDao.insertUser(user);
         System.out.println(LOGIN_LIST.get(3));
     }
+//    private static void getDishNameAndDesc() {
+//        Dish dish = new Dish();
+//        dish.setName(wordQuestion(new Scanner(System.in), EXQ_LIST.get(0)));
+//        dish.setDescription(wordQuestion(new Scanner(System.in), EXQ_LIST.get(1)));
+//        DishDao.insertDish(dish);
+//    }
 
 
 }
