@@ -51,7 +51,17 @@ public class UserChat extends UtilChat {
     private static void loginChat() {
         String username = wordQuestion(new Scanner(System.in), LOGIN_LIST.get(0));
         String password = wordQuestion(new Scanner(System.in), LOGIN_LIST.get(1));
-        User currentUser = UserDao.verifyUser(username, password);
+        String encryptedName = null;
+        String encryptPass=null;
+        try {
+            encryptedName = AESEncryption.encrypt(username);
+            encryptPass = AESEncryption.encrypt(password);
+        }catch(Exception e){
+            printRed(USER_LIST.get(5));
+        }
+//        User currentUser = UserDao.verifyUser(username,password);
+        User currentUser = UserDao.verifyUser(encryptedName,encryptPass);
+        currentUser.setUsername(username);
         if(currentUser!=null)MainChat.displayMainChat(currentUser);
     }
 
@@ -70,12 +80,6 @@ public class UserChat extends UtilChat {
         UserDao.insertUser(user);
         System.out.println(LOGIN_LIST.get(3));
     }
-//    private static void getDishNameAndDesc() {
-//        Dish dish = new Dish();
-//        dish.setName(wordQuestion(new Scanner(System.in), EXQ_LIST.get(0)));
-//        dish.setDescription(wordQuestion(new Scanner(System.in), EXQ_LIST.get(1)));
-//        DishDao.insertDish(dish);
-//    }
 
 
 }

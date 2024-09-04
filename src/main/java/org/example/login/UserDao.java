@@ -2,6 +2,7 @@ package org.example.login;
 
 import org.example.chat.UtilChat;
 
+import org.example.dish.Dish;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -33,7 +34,9 @@ public class UserDao {
 
     public static User verifyUser(String name, String password) {
         setUp();
+        System.out.println(name);
         User user = getUserByName(name);
+        System.out.println(user.getUsername());
         if (transactionSuccess) {
             if (user.getUsername().equals(name) && user.getPassword().equals(password)) return user;
         }
@@ -50,6 +53,18 @@ public class UserDao {
             transactionSuccess = false;
         }
         session.close();
+        System.out.println(transactionSuccess);
         return user;
+    }
+
+    public static boolean updateUsername(String oldUsername, String newUsername) {
+        setUp();
+        System.out.println("old: "+oldUsername + " new: " +newUsername);
+        User existingUser = getUserByName(oldUsername);
+        if (transactionSuccess) {
+            if (newUsername != null && !newUsername.isEmpty()) existingUser.setUsername(newUsername);
+        }
+        sessionFactory.close();
+        return transactionSuccess;
     }
 }

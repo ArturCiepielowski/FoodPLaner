@@ -33,7 +33,7 @@ public class MainChat extends UtilChat {
             printMenu(6,OPTIONS_LIST);
             String mainChoice = sc.next();
             switch (mainChoice) {
-                case "1" -> printGreen(OPTIONS_LIST.get(8));
+                case "1" -> UserDashboardChat.displayUserDashboardChat(user);
                 case "2" -> CRUDChat.displayCRUDChat(user);
                 case "3" -> PlaningChat.displayPlaningChat(user);
                 case "4" -> running = false;
