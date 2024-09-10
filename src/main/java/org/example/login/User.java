@@ -50,7 +50,7 @@ public class User {
 
     }
 
-    public User(String username, String password, String email,String encryptedUsername, String encryptedPassword,String encryptedEmail) {
+    public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;

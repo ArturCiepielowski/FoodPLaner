@@ -1,7 +1,5 @@
 package org.example.chat;
 
-import org.example.dish.Dish;
-import org.example.dish.DishDao;
 import org.example.login.AESEncryption;
 import org.example.login.User;
 import org.example.login.UserDao;

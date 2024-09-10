@@ -56,17 +56,29 @@ public class UserDao {
         setUp();
         User existingUser = getUserByName(oldUsername);
         if (transactionSuccess) {
-            if (newUsername != null && !newUsername.isEmpty()) existingUser.setUsername(newUsername);
+            existingUser.setUsername(newUsername);
             updateUserDetails(existingUser);
         }
         sessionFactory.close();
         return transactionSuccess;
     }
-    public static boolean updatePassword(String newPassword,String userName) {
+
+    public static boolean updatePassword(String newPassword, String userName) {
         setUp();
         User existingUser = getUserByName(userName);
         if (transactionSuccess) {
-            if (newPassword != null && !newPassword.isEmpty()) existingUser.setPassword(newPassword);
+            existingUser.setPassword(newPassword);
+            updateUserDetails(existingUser);
+        }
+        sessionFactory.close();
+        return transactionSuccess;
+    }
+
+    public static boolean updateEmail(String newEmail, String userName) {
+        setUp();
+        User existingUser = getUserByName(userName);
+        if (transactionSuccess) {
+            existingUser.setEmail(newEmail);
             updateUserDetails(existingUser);
         }
         sessionFactory.close();
