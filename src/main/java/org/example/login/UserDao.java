@@ -2,6 +2,7 @@ package org.example.login;
 
 import org.example.chat.UtilChat;
 
+
 import org.example.dish.Dish;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -63,8 +64,16 @@ public class UserDao {
         User existingUser = getUserByName(oldUsername);
         if (transactionSuccess) {
             if (newUsername != null && !newUsername.isEmpty()) existingUser.setUsername(newUsername);
+            updateUserDetails(existingUser);
         }
         sessionFactory.close();
         return transactionSuccess;
+    }
+    public static void updateUserDetails(User user) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.merge(user);
+        transaction.commit();
+        session.close();
     }
 }

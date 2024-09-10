@@ -10,8 +10,35 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
     private String username;
+    private String encryptedUsername;
     private String password;
+    private String encryptedPassword;
     private String email;
+    private String encryptedEmail;
+
+    public String getEncryptedUsername() {
+        return encryptedUsername;
+    }
+
+    public void setEncryptedUsername(String encryptedUsername) {
+        this.encryptedUsername = encryptedUsername;
+    }
+
+    public String getEncryptedPassword() {
+        return encryptedPassword;
+    }
+
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
+    }
+
+    public String getEncryptedEmail() {
+        return encryptedEmail;
+    }
+
+    public void setEncryptedEmail(String encryptedEmail) {
+        this.encryptedEmail = encryptedEmail;
+    }
 
     public Long getUser_id() {
         return user_id;

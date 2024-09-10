@@ -62,8 +62,11 @@ public class UserDashboardChat extends UtilChat {
         // todo pomyslec czy nie wsadzic zmienna encypted w userze
         if (newUssernameVer.toUpperCase().equals("Y")) {
             try {
-                UserDao.updateUsername(AESEncryption.decrypt(user.getUsername()), AESEncryption.decrypt(newUssername));
+//                String test1=AESEncryption.decrypt(user.getUsername());
+//                String test2=AESEncryption.decrypt(newUssername);
+                UserDao.updateUsername(AESEncryption.encrypt(user.getUsername()), AESEncryption.encrypt(newUssername));
             }catch(Exception e){
+                System.out.println(e);
                 printRed(DASHBOARD_LIST.get(6));
             }
             System.out.println("Done");
