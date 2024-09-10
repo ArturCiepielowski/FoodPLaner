@@ -47,7 +47,9 @@ public class UserDashboardChat extends UtilChat {
                   editUsername(user);
                   System.out.println("Username edited");
                 }
-                case "2" -> {}
+                case "2" -> {
+                    editPassword(user);
+                    System.out.println("Password edited");}
                 case "3" ->{}
                 case "4" -> {}
                 case "5" -> {running = false;}
@@ -62,14 +64,24 @@ public class UserDashboardChat extends UtilChat {
         // todo pomyslec czy nie wsadzic zmienna encypted w userze
         if (newUssernameVer.toUpperCase().equals("Y")) {
             try {
-//                String test1=AESEncryption.decrypt(user.getUsername());
-//                String test2=AESEncryption.decrypt(newUssername);
-                UserDao.updateUsername(AESEncryption.encrypt(user.getUsername()), AESEncryption.encrypt(newUssername));
+                boolean updateStatus=UserDao.updateUsername(AESEncryption.encrypt(user.getUsername()), AESEncryption.encrypt(newUssername));
+                if(updateStatus)user.setUsername(newUssername);
             }catch(Exception e){
                 System.out.println(e);
                 printRed(DASHBOARD_LIST.get(6));
             }
-            System.out.println("Done");
         }
+    }
+    private static void editPassword(User user) {
+        String newPassword = wordQuestion(new Scanner(System.in), SUBQ_LIST.get(2));
+        String newPasswordVer = wordQuestion(new Scanner(System.in), SUBQ_LIST.get(3));
+        if (newPassword.equals(newPasswordVer)) {
+            try {
+                UserDao.updatePassword(AESEncryption.encrypt(newPassword), AESEncryption.encrypt(user.getUsername()));
+            }catch(Exception e){
+                System.out.println(e);
+                printRed(DASHBOARD_LIST.get(6));
+            }
+        }else printRed(SUBQ_LIST.get(4));
     }
 }

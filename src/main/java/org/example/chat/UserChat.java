@@ -26,6 +26,7 @@ public class UserChat extends UtilChat {
         LOGIN_LIST.add("Please write your password");
         LOGIN_LIST.add("Please write your email");
         LOGIN_LIST.add("Thank you for registration! You can log in now.");
+        LOGIN_LIST.add("Username or password incorrect");
     }
 
     public static void displayUserChat() {
@@ -59,10 +60,11 @@ public class UserChat extends UtilChat {
         }catch(Exception e){
             printRed(USER_LIST.get(5));
         }
-//        User currentUser = UserDao.verifyUser(username,password);
         User currentUser = UserDao.verifyUser(encryptedName,encryptPass);
-        currentUser.setUsername(username);
-        if(currentUser!=null)MainChat.displayMainChat(currentUser);
+        if(currentUser!=null) {
+            currentUser.setUsername(username);
+            MainChat.displayMainChat(currentUser);
+        }else printRed(LOGIN_LIST.get(4));
     }
 
     private static void registerChat() {
